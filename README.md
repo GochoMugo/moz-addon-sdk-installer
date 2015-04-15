@@ -7,7 +7,7 @@ Easily install and update Mozilla Addon SDK Installer
 ## installation:
 
 ```bash
-⇒ wget https://raw.githubusercontent.com/GochoMugo/moz-addon-sdk-installer/master/get.sh | bash
+⇒ wget http://git.io/vvEpZ | bash
 ```
 
 
