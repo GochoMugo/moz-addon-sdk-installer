@@ -31,6 +31,7 @@ cp -r temp/*/. cfx
 
 
 log "installing (requires \"sudo\" powers)" 0
+sudo rm -rf /usr/local/lib/cfx
 sudo mv cfx /usr/local/lib/
 sudo ln -sf /usr/local/lib/cfx/bin/cfx /usr/local/bin/cfx
 
