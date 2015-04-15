@@ -7,7 +7,7 @@ Easily install and update Mozilla Addon SDK Installer
 ## installation:
 
 ```bash
-⇒ wget http://git.io/vvEpZ | bash
+⇒ wget -qO- http://git.io/vvEpZ | bash
 ```
 
 
