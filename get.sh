@@ -14,6 +14,7 @@ git clone https://github.com/GochoMugo/moz-addon-sdk-installer.git $DIRNAME
 
 
 echo "⇒ moving installer to /usr/local/lib (requires  \"sudo\" powers)"
+sudo rm -rf /usr/local/lib/$DIRNAME
 sudo mv $DIRNAME /usr/local/lib
 
 
