@@ -14,6 +14,15 @@ source utils.sh
 LOG_TITLE="moz-addon-sdk-installer"
 
 
+# check if we are supposed to self-update
+if [ ${1} ] ; then
+  if [ ${1} == "-u" ] ; then
+    log "self-update started" 0
+    wget -qO- http://git.io/vvEpZ | bash
+  fi
+fi
+
+
 log "changing to /tmp" 0
 ORIG_DIR="$PWD"
 cd /tmp
