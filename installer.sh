@@ -16,10 +16,22 @@ LOG_TITLE="moz-addon-sdk-installer"
 
 # check if we are supposed to self-update
 if [ ${1} ] ; then
-  if [ ${1} == "-u" ] ; then
-    log "self-update started" 0
-    wget -qO- http://git.io/vvEpZ | bash
-  fi
+  case ${1} in
+    "-u" )
+      log "self-update started" 0
+      wget -qO- http://git.io/vvEpZ | bash
+      ;;
+    "-h" )
+      echo
+      echo " $LOG_TITLE by GochoMugo <mugo@forfuture.co.ke>"
+      echo
+      echo "    moz-sdk          installs/updates addon sdk"
+      echo "    moz-sdk -u       updates this installer"
+      echo "    moz-sdk -h       show this help information"
+      echo
+      ;;
+  esac
+  exit
 fi
 
 

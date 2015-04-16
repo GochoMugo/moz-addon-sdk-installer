@@ -31,6 +31,13 @@ After a successfull install/update, the addon-sdk will be available with the com
 This will self-update the installer.
 
 
+## showing help information:
+
+```bash
+⇒ moz-sdk -h
+```
+
+
 ## license:
 
 __The MIT License (MIT)__
