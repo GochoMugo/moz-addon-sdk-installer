@@ -31,7 +31,14 @@ After a successfull install/update, the addon-sdk will be available with the com
 This will self-update the installer.
 
 
-## showing help information:
+### showing version information:
+
+```bash
+⇒ moz-sdk -v
+```
+
+
+### showing help information:
 
 ```bash
 ⇒ moz-sdk -h

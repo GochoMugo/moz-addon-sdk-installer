@@ -11,6 +11,7 @@ set -e
 
 
 # script variables
+VERSION="0.0.0"
 LOG_TITLE="moz-addon-sdk-installer"
 # Colors for Bash
 COLOR_BLUE="\033[0;34m"
@@ -41,16 +42,23 @@ log() {
 # check if we are supposed to self-update
 if [ ${1} ] ; then
   case ${1} in
+    "-v" )
+      echo
+      echo "Mozilla Addon SDK: $(cfx --version)"
+      echo "Installer: $VERSION"
+      echo
+      ;;
     "-u" )
       log "self-update started" 0
       wget -qO- http://git.io/vvEpZ | bash
       ;;
     "-h" )
       echo
-      echo " $LOG_TITLE by GochoMugo <mugo@forfuture.co.ke>"
+      echo " $LOG_TITLE $VERSION by GochoMugo <mugo@forfuture.co.ke>"
       echo
       echo "    moz-sdk          installs/updates addon sdk"
       echo "    moz-sdk -u       updates this installer"
+      echo "    moz-sdk -v       show version information"
       echo "    moz-sdk -h       show this help information"
       echo
       ;;
