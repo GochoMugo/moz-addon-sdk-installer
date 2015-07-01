@@ -6,12 +6,8 @@
 #
 
 
-# we stop on error
-set -e
-
-
 # script variables
-VERSION="0.0.0"
+VERSION="0.0.1"
 LOG_TITLE="moz-addon-sdk-installer"
 # Colors for Bash
 COLOR_BLUE="\033[0;34m"
@@ -44,13 +40,22 @@ if [ ${1} ] ; then
   case ${1} in
     "-v" )
       echo
-      echo "Mozilla Addon SDK: $(cfx --version)"
-      echo "Installer: $VERSION"
+      command -v cfx > /dev/null 2>&1 \
+        && echo "cfx: $(cfx --version)" \
+        || echo -e "${COLOR_RED}Mozilla Addon SDK not installed${COLOR_RESET}"
+      echo "moz-sdk: $VERSION"
       echo
       ;;
     "-u" )
       log "self-update started" 0
-      wget -qO- http://git.io/vvEpZ | bash
+      rm -f .get
+      wget -q http://git.io/vvEpZ -O .get
+      [ $? -eq 0 ] || {
+        echo -e "${COLOR_RED}failed to download updates${COLOR_RESET}"
+        exit 1
+      }
+      cat .get | bash
+      rm .get
       ;;
     "-h" )
       echo
@@ -99,4 +104,3 @@ cd $ORIG_DIR
 
 log "installed successfully: $(cfx --version)" 1
 log "addon sdk available with the command: cfx" 1
-
